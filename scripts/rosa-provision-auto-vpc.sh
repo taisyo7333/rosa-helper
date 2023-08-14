@@ -1,6 +1,8 @@
 #!/bin/bash -xe
-CLUSTER_NAME="dinoue"
+
+CLUSTER_NAME=${1:?Must provide cluster name for you}
 CLUSTER_REGION="ap-northeast-2"
+CLUSTER_VERSION=${2:?Must provide OCP version such as 4.13.6}
 
 # if Existing the above cluster , do not proccedd, stop here with error status
 
@@ -15,6 +17,7 @@ rosa version
 # rosa verify permissions --region="${CLUSTER_REGION}"
 rosa verify quota  --region="${CLUSTER_REGION}"
 rosa verify oc
+rosa init
 
 # rosa login
 #rosa login --token="${ROSA_TOKEN}" --region="${CLUSTER_REGION}"
@@ -26,11 +29,11 @@ rosa create cluster \
   --cluster-name "${CLUSTER_NAME}" \
   --sts  \
   --region="${CLUSTER_REGION}" \
+  --multi-az \
+  --version="" \
   --yes
 
-# --multi-az
 # --fips \
-
 #
 rosa describe cluster -c "${CLUSTER_NAME}"
 

@@ -30,7 +30,7 @@ rosa create cluster \
   --sts  \
   --region="${CLUSTER_REGION}" \
   --multi-az \
-  --version="" \
+  --version="${CLUSTER_VERSION}" \
   --yes
 
 # --fips \

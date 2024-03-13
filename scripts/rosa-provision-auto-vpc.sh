@@ -1,8 +1,10 @@
 #!/bin/bash -xe
 
 CLUSTER_NAME=${1:?Must provide cluster name for you}
-CLUSTER_REGION="ap-northeast-1"
 CLUSTER_VERSION=${2:?Must provide OCP version such as 4.13.8}
+CLUSTER_REGION="ap-northeast-1"
+#CLUSTER_REGION="ap-southeast-2"
+
 # --region us-east-1 -
 # if Existing the above cluster , do not proccedd, stop here with error status
 

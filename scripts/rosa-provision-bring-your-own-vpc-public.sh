@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 
 CLUSTER_NAME=${1:?}
-CLUSTER_VERSION="4.13.4"
+CLUSTER_VERSION="4.13.7"
 AWS_REGION="us-east-2"
 
 rosa version
